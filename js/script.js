@@ -1,5 +1,5 @@
-//find a place
 $(function() {
+  //initialization of autocomplete for locations.
   $("#geocomplete").geocomplete({detailsAttribute: "data-geo"
     }).bind("geocode:result", function(event, result) {
       console.log(event);
@@ -9,60 +9,70 @@ $(function() {
     });
       
 
+  //trigger click on click of search button
   $("#find").click(function() {
     $("#geocomplete").trigger("geocode");
   });
 
+  //trigger click on change of gender
   $("#gender input[type=radio]").change(function(){
     $("#geocomplete").trigger("geocode");
   });
 
-  // current location
+  // use current location link logic using geolocation browser API
   $(".search_button").click(function() {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      console.log(position.coords.latitude, position.coords.longitude);
-      getWeatherDetails(position.coords.latitude, position.coords.longitude);
-      
-    });
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log(position.coords.latitude, position.coords.longitude);
+        getWeatherDetails(position.coords.latitude, position.coords.longitude);
+        
+      });
+    }else{
+      alert('Geolocation API not available');
+    }
   });
 });
 
-
+//function to get weather details from Darksky API
 function getWeatherDetails(lat, lng){
+  //use https://cors-anywhere.herokuapp.com to fix CORS issues
   $.ajax({
     url: "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/90c4ae9ccc2d9fa391abda1bf5f8b174/" + lat + "," + lng + "?units=si",
     success: callResult
   });
 }
 
+//handle weather information from API.
 function callResult (data) {
-console.log(data,data.currently.icon);
+  console.log(data,data.currently.icon);
 
-var gender = $("#gender input[name='gender']:checked").attr('value');
-var currentTemp = data.currently.temperature; //details
-var summary = data.currently.summary; //details
-var humidity = data.currently.humidity; //range 0 to 1
-var weatherType = data.currently.icon; // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
-var tempRange = "";
+  var gender = $("#gender input[name='gender']:checked").attr('value');
+  var currentTemp = data.currently.temperature; //details
+  var summary = data.currently.summary; //details
+  var humidity = data.currently.humidity; //range 0 to 1
+  var weatherType = data.currently.icon; // clear-day, clear-night, rain, snow, sleet, wind, fog, cloudy, partly-cloudy-day, or partly-cloudy-night
+  var tempRange = "";
 
-if (currentTemp<0){
-  tempRange = "below-0";
-} else if (currentTemp <= 20 && currentTemp > 0) {
-  tempRange = "0-20";
-} else if (currentTemp <= 40 && currentTemp > 20) {
-  tempRange = "20-40";
-} else if ( currentTemp > 40) {
-  tempRange = "above-40";
-} 
+  if (currentTemp<0){
+    tempRange = "below-0";
+  } else if (currentTemp <= 20 && currentTemp > 0) {
+    tempRange = "0-20";
+  } else if (currentTemp <= 40 && currentTemp > 20) {
+    tempRange = "20-40";
+  } else if ( currentTemp > 40) {
+    tempRange = "above-40";
+  } 
 
-var dressObj = dresStyle[weatherType][gender]["temp"][tempRange];
+  //get dress recommendation
+  var dressObj = dresStyle[weatherType][gender]["temp"][tempRange];
 
-showDressSuggestions(dressObj, '#result_id', {
-  temp: currentTemp,
-  humidity: humidity,
-  summary: summary,
-  currentWeather: weatherType
-});
+  //render weather information and dress recommendation.
+  showDressSuggestions(dressObj, '#result_id', {
+    temp: currentTemp,
+    humidity: humidity,
+    summary: summary,
+    currentWeather: weatherType
+  });
 }
 
 function showDressSuggestions(obj, parentEl, weatherObj){
@@ -71,6 +81,8 @@ function showDressSuggestions(obj, parentEl, weatherObj){
   var explanation = obj.explanation; //explanation is string
   var currentTemp = weatherObj.temp;
   var currentWeatherCond = weatherObj.currentWeather
+  
+  //template to render.
   var resultStrcture = '\
   <div class="container">\
     <div class="row justify-content-center weather-detail">\
@@ -109,8 +121,10 @@ function showDressSuggestions(obj, parentEl, weatherObj){
       </div>\
     </div>\
   </div>';
-$(parentEl).empty();
-$(parentEl).append(resultStrcture)
+
+  //empty parent before appending
+  $(parentEl).empty();
+  $(parentEl).append(resultStrcture)
 }
 
 

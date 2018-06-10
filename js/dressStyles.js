@@ -1,3 +1,4 @@
+// stores the config for various dress styles.
 var dresStyle = {
   "clear-day": {
     "female": {
