@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Daily Dress Me</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!-- googlefontapi -->
+  <link href="https://fonts.googleapis.com/css?family=Forum" rel="stylesheet">
+  <!-- fontawesome icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+
+  <!-- Custom styles for this template go here -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- script -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAWUXrT71VBpqBPXG2lZ54ldw-EDx2e7MY&libraries=places"></script>
+  <script src="js/jquery.geocomplete.js"></script>
+
+  <script src="js/script.js"></script>
+  <script src="js/dressStyles.js"></script>
+</head>
+
+<body>
+  <header id="header">
+    <h1> Daily Dress Me</h1>
+  </header>
+  <!-- search location-->
+  <div class="content-wrapper">
+  <section id="search">
+  
+      <!-- search by choice -->
+      <div class="search_location">
+          <div class="input-group mb-3">
+            <input id="geocomplete" type="text" placeholder="city/PostCode" value="London" class="form-control"/>
+            <div class="input-group-append">
+              <button id="find" class="btn btn-primary"/>&nbsp;&nbsp;<i class="fas fa-search"></i></button>
+            </div>
+          </div>  
+      </div>
+      <!-- current location -->
+      <div class="current_location">
+        <button type="search" class="btn search_button">Use current location! </button>
+      </div>
+   
+    <div id="gender">
+      <input type="radio" name="gender" value="female" checked='checked' /> Female
+      <input type="radio" name="gender" value="male" /> Male
+    </div>
+  </section>
+  <!-- /search location -->
+  
+  <!-- result -->
+  <section id="result">
+    <div id="result_id" class="result">
+      Are you ready to take Daily Dress ME reccomandation 
+    </div>
+  </section>
+</div>
+
+  <!-- footer -->
+  <footer>
+    <p>Made with<span style="color:red "><i class="fas fa-xs fa-heart "></i></span>by<a href="https://www.linkedin.com/in/shweta-patil-01021994/ ">shwetz</a>| &copy; 2018</p>
+  </footer>
+</body>
+
+</html>

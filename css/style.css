@@ -1,0 +1,74 @@
+
+html{
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: aliceblue;
+  font-family: 'Forum', cursive;
+}
+
+header {
+  font-size: 3.5rem !important;
+  text-align: center;
+  margin: 30px;
+  font-weight: bolder;
+  color: #007bff;
+}
+
+.content-wrapper{
+  padding-bottom: 40px;
+  margin: 20px;
+}
+.search_location{
+  width: 97%;
+  margin-left: .375rem;
+  margin-top: .375rem;
+  margin-right: .375rem;
+}
+#geocomplete {
+  height: 50px !important;
+}
+.search_location .input-group{
+  margin: 0 !important;
+}
+.current_location{
+  margin-left: .375rem;
+  margin-top: .375rem;
+  margin-right: .375rem;
+}
+
+.search_button{
+  background: none;
+  color: #007bff;
+  padding: 0;
+  text-decoration: underline;
+}
+#gender {
+  margin-left: .375rem;
+  margin-top: .375rem;
+  margin-right: .375rem;
+}
+#result {
+  text-align: center;
+}
+
+.weather-info{
+  width: 100%;
+}
+
+
+.explanation {
+  padding: 70px 30px;
+}
+
+footer {  
+  width: 100%;
+  bottom: 0;
+  height: 30px;
+  margin-top: 20px;
+  text-align:center; 
+  position: absolute;
+
+}
