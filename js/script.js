@@ -73,9 +73,9 @@ function showDressSuggestions(obj, parentEl, weatherObj){
   var currentWeatherCond = weatherObj.currentWeather
   var resultStrcture = '\
   <div class="container">\
-    <div class="row justify-content-center">\
-      <p class="weather-info"> Temperature: ' + currentTemp + ' &#8451; </p>\
-      <p class="weather-info"> Weather Condition:' + currentWeatherCond + '</p>\
+    <div class="row justify-content-center weather-detail">\
+      <p class="weather-info"><span style="color: #007bff"><i class="fas fa-thermometer-empty"></i></span>  Temperature : ' + currentTemp + ' &#8451; </p>\
+      <p class="weather-info"><span style="color: #007bff"><i class="fab fa-cloudversify"></i></span>  Weather Condition : ' + currentWeatherCond + '</p>\
     </div>\
     <div class="row">\
       <div class="col-sm-4 hero-img">\

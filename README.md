@@ -10,4 +10,3 @@ The web-app uses temperature, gender and general weather conditions for making t
 ## Future work
 1. Make the recomendation more expressive e.g. based on occasion.
 2. Allow for some selection of present wardrobe collection to improve recommendations.
-3. 
