@@ -3,7 +3,7 @@ This web-app is a simple service that recommends clothing to wear based on the w
 
 The web-app uses temperature, gender and general weather conditions for making the recommendation.
 
-It is also hosted on http://daily-dress-me.bitballoon.com/
+It is also hosted on https://daily-dress-me.bitballoon.com/
 
 ## Installation
 1. Clone this repo.
